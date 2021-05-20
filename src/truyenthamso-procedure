@@ -1,0 +1,37 @@
+CREATE PROCEDURE GetCustomersCountByCity(
+
+    IN  in_city VARCHAR(50),
+
+    OUT total INT )
+
+    begin
+        SELECT customerName, COUNT(customerNumber)
+
+        INTO total
+
+        FROM customers
+
+        WHERE city = in_city;
+    end;
+
+drop procedure GetCustomersCountByCity;
+
+call GetCustomersCountByCity('San Diego', @total);
+select @total;
+
+CREATE PROCEDURE SetCounter(
+
+    INOUT counter INT,
+
+    IN inc INT
+
+)
+BEGIN
+
+    SET counter = counter + inc;
+
+END;
+
+SET @counter = 1;
+
+CALL SetCounter(@counter,1); -- 2
