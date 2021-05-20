@@ -16,3 +16,5 @@ EXPLAIN SELECT * FROM customers WHERE contactFirstName = 'Jean' or contactFirstN
 alter table customers drop index idx_customerName;
 
 alter table customers drop index idx_full_name;
+
+create procedure
